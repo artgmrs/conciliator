@@ -34,4 +34,10 @@
       <Content Remove="Migrations\**" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Include="Migrations\20210716234218_AddExtratos.cs" />
+      <Compile Include="Migrations\20210716234218_AddExtratos.Designer.cs" />
+      <Compile Include="Migrations\ConciliatorDbContextModelSnapshot.cs" />
+    </ItemGroup>
+
 </Project>

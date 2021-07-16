@@ -27,7 +27,7 @@ namespace Conciliator.App
             });
 
             services.AddDbContext<ConciliatorDbContext>(options =>
-                options.UseInMemoryDatabase("Conciliator"));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
