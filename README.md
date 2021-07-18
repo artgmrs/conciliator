@@ -1,5 +1,5 @@
 ## Conciliator
-<img src="https://gifyu.com/image/Bojz"/>
+<img src="https://gifyu.com/image/Bojz" width="600"/>
 
 # Stack used
 * NET Core 2.1 MVC
