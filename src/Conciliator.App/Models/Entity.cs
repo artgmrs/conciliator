@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Conciliator.App.Models
 {
@@ -8,6 +9,8 @@ namespace Conciliator.App.Models
         {
             Id = Guid.NewGuid();
         }
+
+        [Key]
         public Guid Id { get; set; }
     }
 }

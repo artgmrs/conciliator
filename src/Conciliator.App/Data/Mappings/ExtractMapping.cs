@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Conciliator.App.Data.Mappings
 {
-    public class ExtratoMapping : IEntityTypeConfiguration<Extrato>
+    public class ExtractMapping : IEntityTypeConfiguration<Extract>
     {
-        public void Configure(EntityTypeBuilder<Extrato> builder)
+        public void Configure(EntityTypeBuilder<Extract> builder)
         {
             builder.HasKey(e => e.Id);
 
@@ -26,7 +26,10 @@ namespace Conciliator.App.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(50)");
 
-            builder.ToTable("Extratos");
+            builder.Property(e => e.Note)
+                .HasColumnType("varchar(50)");
+
+            builder.ToTable("Extracts");
         }
     }
 }

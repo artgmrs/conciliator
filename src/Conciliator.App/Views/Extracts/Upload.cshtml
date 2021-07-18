@@ -1,0 +1,23 @@
+﻿@model Conciliator.App.Models.Extract
+
+@{
+    ViewData["Title"] = "Upload files";
+}
+
+<form method="post" enctype="multipart/form-data" asp-controller="Extracts" asp-action="Upload">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Upload one or more files using this form:</p>
+            <input type="file" name="files" multiple/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Upload" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

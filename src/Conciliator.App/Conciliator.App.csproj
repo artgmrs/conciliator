@@ -10,34 +10,38 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Business\Interfaces" />
-      <Folder Include="Business\Services" />
-      <Folder Include="Data\Repository" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <Compile Remove="Business\**" />
       <Compile Remove="Migrations\**" />
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Remove="Business\**" />
       <EmbeddedResource Remove="Migrations\**" />
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Business\**" />
       <None Remove="Migrations\**" />
     </ItemGroup>
 
     <ItemGroup>
+      <Content Remove="Business\**" />
       <Content Remove="Migrations\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="Migrations\20210716234218_AddExtratos.cs" />
-      <Compile Include="Migrations\20210716234218_AddExtratos.Designer.cs" />
+      <Compile Include="Migrations\20210717224711_AddExtract.cs" />
+      <Compile Include="Migrations\20210717224711_AddExtract.Designer.cs" />
       <Compile Include="Migrations\ConciliatorDbContextModelSnapshot.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Temp\" />
+      <Folder Include="wwwroot\images\" />
     </ItemGroup>
 
 </Project>

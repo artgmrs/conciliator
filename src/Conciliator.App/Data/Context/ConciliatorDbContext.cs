@@ -10,11 +10,11 @@ namespace Conciliator.App.Data.Context
         {
         }
 
-        public DbSet<Extrato> Extratos { get; set; }
+        public DbSet<Extract> Extracts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ExtratoMapping());
+            modelBuilder.ApplyConfiguration(new ExtractMapping());
 
             base.OnModelCreating(modelBuilder);
         }

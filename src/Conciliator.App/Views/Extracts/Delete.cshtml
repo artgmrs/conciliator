@@ -1,0 +1,45 @@
+﻿@model Conciliator.App.Models.Extract
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Extract</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TransactionType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePosted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DatePosted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionAmount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TransactionAmount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Memo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Memo)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,4 +1,8 @@
-﻿using Conciliator.App.Data.Context;
+﻿using Conciliator.App.Config;
+using Conciliator.App.Data.Context;
+using Conciliator.App.Data.Repository;
+using Conciliator.App.Interfaces;
+using Conciliator.App.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,6 +34,8 @@ namespace Conciliator.App
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.ResolveDependencies();            
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -52,7 +58,7 @@ namespace Conciliator.App
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Extracts}/{action=Index}/{id?}");
             });
         }
     }

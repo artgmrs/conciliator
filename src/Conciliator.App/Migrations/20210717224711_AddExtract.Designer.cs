@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Conciliator.App.Migrations
 {
     [DbContext(typeof(ConciliatorDbContext))]
-    [Migration("20210716234218_AddExtratos")]
-    partial class AddExtratos
+    [Migration("20210717224711_AddExtract")]
+    partial class AddExtract
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Conciliator.App.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Conciliator.App.Models.Extrato", b =>
+            modelBuilder.Entity("Conciliator.App.Models.Extract", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -33,6 +33,9 @@ namespace Conciliator.App.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
+                    b.Property<string>("Note")
+                        .HasColumnType("varchar(50)");
+
                     b.Property<decimal>("TransactionAmount")
                         .HasColumnType("decimal(13, 2)");
 
@@ -42,7 +45,7 @@ namespace Conciliator.App.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Extratos");
+                    b.ToTable("Extracts");
                 });
 #pragma warning restore 612, 618
         }

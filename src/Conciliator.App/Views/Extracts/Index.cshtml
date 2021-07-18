@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Conciliator.App.Models.Extract>
+
+@{
+    ViewData["Title"] = "Home - Conciliator";
+}
+
+<div class="Upload">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data" asp-controller="Extracts" asp-action="Upload">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Upload one or more files using this form:</p>
+                    <input id="upload-button" type="file" name="files" multiple />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Upload" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div class="col-md-6">
+        <nav class="navbar">
+            <div>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="minDate">Start Date</label>
+                            <input type="date" class="form-control" name="startDate" value=@ViewData["startDate"] />
+                        </div>
+                        <div class="form-group">
+                            <label for="maxDate">Finish Date</label>
+                            <input type="date" class="form-control" name="endDate" value=@ViewData["endDate"] />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel-footer text-right">
+            <h3 class="panel-title">Total extracts = @Model.Count()</h3>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Memo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePosted, "{0:dd/MM/yyyy}")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Memo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
