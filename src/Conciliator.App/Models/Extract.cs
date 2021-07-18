@@ -13,7 +13,7 @@ namespace Conciliator.App.Models
         [Required(ErrorMessage = "{0} is required.")]
         [DisplayName("Date")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy HH:mm:ss}"]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy HH:mm:ss}")]
         public DateTime DatePosted { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]

@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Conciliator.App</title>
+    <title>Conciliator - @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="~/images/icon2.png" />
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -16,53 +18,116 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+    <style type="text/css">
+        body {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        /* Custom container */
+        .container-narrow {
+            margin: 0 auto;
+            max-width: 70vw;
+        }
+
+            .container-narrow > hr {
+                margin: 30px 0;
+            }
+
+            img.img-logo {
+                width: 60px;
+                height: 59px;
+            }
+
+        /* Main marketing message and sign up button */
+        .jumbotron {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+            .jumbotron h1 {
+                font-size: 72px;
+                line-height: 1;
+            }
+
+            .jumbotron #btn-browse {
+                font-size: 20px;
+                margin: 0 auto;
+            }
+
+            .jumbotron #btn-upload {
+                font-size: 21px;
+                padding: 14px 24px;
+                background-color: #337ab7;
+                color: white;
+            }
+
+        /* Supporting marketing content */
+        .marketing {
+            margin: 60px 0;
+        }
+
+            .marketing p + h4 {
+                margin-top: 28px;
+            }
+
+        .form-control, input {
+            line-height: unset;
+        }
+
+            input[type="date"].form-control {
+                line-height: unset;
+            }
+
+        .navbar-form {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }        
+    </style>
+
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a asp-area="" asp-controller="Extracts" asp-action="Index" class="navbar-brand">Conciliator.App</a>
-        </div>        
+    <div class="container-narrow">
+
+        <nav class="navbar">
+            <div class="navbar-header">
+                <a asp-controller="Extracts" asp-action="Index"><img class="img-logo" src="~/images/icon2.png" alt="Logo" /></a>
+            </div>
+        </nav>
+
+        <partial name="_CookieConsentPartial" />
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2021 - Conciliator</p>
+            </footer>
+        </div>
     </div>
-</nav>
 
-<partial name="_CookieConsentPartial"/>
-
-<div class="container body-content">
-    @RenderBody()
-    <hr/>
-    <footer>
-        <p>&copy; 2021 - Conciliator.App</p>
-    </footer>
-</div>
-
-<environment include="Development">
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</environment>
-<environment exclude="Development">
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-            asp-fallback-test="window.jQuery"
-            crossorigin="anonymous"
-            integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
         </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-            crossorigin="anonymous"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
         </script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
-</environment>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
 
-@RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

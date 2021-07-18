@@ -5,8 +5,6 @@
 }
 
 <h2>Edit</h2>
-
-<h4>Extract</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -39,14 +37,11 @@
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a class="btn btn-default" asp-action="Index">Back</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

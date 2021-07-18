@@ -28,7 +28,7 @@ namespace Conciliator.App.Controllers
             if (!startDate.HasValue)
             {
                 var lastExtract = await _extractRepository.GetLastExtract();
-                startDate = lastExtract.DatePosted != null ? lastExtract.DatePosted : new DateTime(2014, 1, 1);
+                startDate = lastExtract != null ? lastExtract.DatePosted : new DateTime(2014, 1, 1);
             }
 
             if (!endDate.HasValue)
@@ -44,11 +44,11 @@ namespace Conciliator.App.Controllers
             return View(result);
         }
 
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid id)
         {
             if (id == null) return NotFound();
 
-            var Extract = await _extractRepository.Search(m => m.Id == id);
+            var Extract = await _extractRepository.GetById(id);
 
             if (Extract == null) return NotFound();
 
