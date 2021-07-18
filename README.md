@@ -1,5 +1,5 @@
 ## Conciliator
-![Application Running](https://gifyu.com/image/Bojz)
+<img src="https://gifyu.com/image/Bojz"/>
 
 # Stack used
 * NET Core 2.1 MVC
